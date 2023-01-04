@@ -1,0 +1,44 @@
+body {
+    background: url('img/light_jelly.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#nav {
+    height: 100%;
+    width: 60px;
+    background-color: #291732;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+#nav a {
+    display: block;
+    color: white;
+    padding: 7px;
+}
+
+#nav a:hover,
+#bottom-icon:hover {
+    background-color: #0e0413;
+    color: black;
+    border-radius: 15px;
+
+}
+
+a img {
+    display: flex;
+    justify-content: flex;
+    justify-items: center;
+}
+
+#bottom-icon {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 5px;
+}
