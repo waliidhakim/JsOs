@@ -1,33 +1,53 @@
 body {
-    background: url('img/light_jelly.jpg') no-repeat center center fixed;
+    /* background: url('img/light_jelly.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover; */
+background-color: #040123;
+    max-height: 100vh;
 }
 
-#nav {
-    height: 100%;
-    width: 60px;
+.nav {
+    height: 100vh;
     background-color: #291732;
     position: fixed;
+    display: flex;
+    flex-direction: column;
     top: 0;
     left: 0;
     overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    clip-path: polygon(89% 0, 100% 2%, 100% 100%, 0 100%, 0 0);
 }
 
-#nav a {
-    display: block;
+.nav .nav-elements {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav a {
+    margin: auto;
     color: white;
-    padding: 7px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+    font-size: 1.5em;
+    transition: .7s;
 }
 
-#nav a:hover,
-#bottom-icon:hover {
-    background-color: #0e0413;
-    color: black;
-    border-radius: 15px;
-
+.nav a:hover,
+.menu-icon:hover + #nav a {
+    transition: .7s;
+    text-shadow:
+    0 0 2px #00ffff,
+    0 0 5px #00ffff,
+    0 0 10px #00ffff,
+    0 0 70px #00ffff,
+    0 0 80px #00ffff,
+    0 0 90px #00ffff,
+    0 0 120px #00ffff,
+    0 0 150px #00ffff;
 }
 
 a img {
@@ -36,9 +56,17 @@ a img {
     justify-items: center;
 }
 
-#bottom-icon {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    padding: 5px;
+.menu-icon {
+    margin: auto;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.version {
+    color: white;
+    margin: auto;
+    font-family: Rajdhani, sans-serif;
+    font-size: 16px;
 }
