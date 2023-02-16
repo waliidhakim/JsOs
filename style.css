@@ -4,21 +4,55 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover; */
-background-color: #040123;
+    background-color: rgb(82, 10, 10);
     max-height: 100vh;
+    align-items: center;
 }
 
-.nav {
-    height: 100vh;
-    background-color: #291732;
+.nav-container {
+    height: 100%;
     position: fixed;
     display: flex;
     flex-direction: column;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.nav {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    background-color: yellow;
+    padding-top : 1em;
+    margin: 0px 10px;
+    /* border-radius: 24px; */
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    clip-path: polygon(82% 0, 100% 4%, 100% 50%, 100% 96%, 82% 100%, 0 100%, 0 0);   
+    justify-content: space-evenly;
+    transform: translateX(-100%);
+    transition: .3s;
+
+}
+
+.nav::before {
+    content: "";
+    position: absolute;
     top: 0;
     left: 0;
-    overflow: hidden;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    clip-path: polygon(89% 0, 100% 2%, 100% 100%, 0 100%, 0 0);
+    width: 80vh;
+    height: 100%;
+    background: url('./assets/svgs/band.svg') no-repeat center center fixed;
+    z-index: 1;
+    transform: translateX(-100%);
+    transform: rotate(90deg);
+    transition: .3s;
+}
+
+.nav:hover {
+    transform: translateX(0%);
+    transition: .3s;
 }
 
 .nav .nav-elements {
@@ -28,7 +62,7 @@ background-color: #040123;
 
 .nav a {
     margin: auto;
-    color: white;
+    color: black;
     padding-top: 1em;
     padding-bottom: 1em;
     text-align: center;
@@ -37,17 +71,17 @@ background-color: #040123;
 }
 
 .nav a:hover,
-.menu-icon:hover + #nav a {
+.menu-icon:hover+#nav a {
     transition: .7s;
     text-shadow:
-    0 0 2px #00ffff,
-    0 0 5px #00ffff,
-    0 0 10px #00ffff,
-    0 0 70px #00ffff,
-    0 0 80px #00ffff,
-    0 0 90px #00ffff,
-    0 0 120px #00ffff,
-    0 0 150px #00ffff;
+        0 0 2px #000000,
+        0 0 5px #000000,
+        0 0 10px #000000,
+        0 0 70px #000000,
+        0 0 80px #000000,
+        0 0 90px #000000,
+        0 0 120px #000000,
+        0 0 150px #000000;
 }
 
 a img {
@@ -65,8 +99,9 @@ a img {
 }
 
 .version {
-    color: white;
+    color: black;
     margin: auto;
+    text-align: center;
     font-family: Rajdhani, sans-serif;
     font-size: 16px;
 }
