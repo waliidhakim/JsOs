@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Zak & Walid^2 Mini Os</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <!-- <img class="bg" src="./assets/img/bg_ls(cyan).png" alt=""> -->
+        <nav class="nav-container">
+            <div class="nav">
+                <div class="nav-elements">
+                    <div id="calculator-button" class='minim-icon'>
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <div id="clock-button" class='minim-icon'>
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <div id="tic-tac-toe-button" class='minim-icon'>
+                        <i class="fa-solid fa-table-cells"></i>
+                    </div>
+                    <div id="settings-button" class='minim-icon'>
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                </div>
+                <div class="menu-icon">
+                    <a href="#"><i class="fa-solid fa-grip"></i></a>
+                </div>
+                <div class="version">
+                    v.0.0.1
+                </div>
+            </div>
+        </nav>
+
+        <div class="app-list">
+            <div class="icon-wrapper">
+                <div id="calculator-icon" class="icon"><i class="fa-solid
+                        fa-calculator"></i></div>
+                <p>Calculator</p>
+            </div>
+            <div class="icon-wrapper">
+                <div id="clock-icon" class="icon"><i class="fa-solid fa-clock"></i></div>
+                <p>Clock</p>
+            </div>
+            <div class="icon-wrapper">
+                <div id="tictactoe-icon" class="icon"><i class="fa-solid
+                        fa-gamepad"></i></div>
+                <p>Tic-Tac-Toe</p>
+            </div>
+            <div class="icon-wrapper">
+                <div id="settings-icon" class="icon"><i class="fa-solid
+                        fa-gear"></i></div>
+                <p>Settings</p>
+            </div>
+        </div>
+
+        <div id='app' class="calculator" role="application">
+            <div class="top-bar">
+                <img src="/assets/img/Icon(cyan).png" alt="logo" class="logo">
+                <p>Calculator</p>
+                <div class="buttons">
+                    <div id="btn" class="minimize">
+                        <img src="assets/svgs/minimize.svg" alt="">
+                    </div>
+                    <div id="btn" class="maximize">
+                        <img src="assets/svgs/maximize.svg" alt="">
+                    </div>
+                    <div id="btn" class="close">
+                        <img src="assets/svgs/close.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            <table class="calculator-grid">
+                <div class="output">
+                    <div data-previous-operand class="previous-operand"></div>
+                    <div data-current-operand class="current-operand"></div>
+                </div>
+
+                <tr>
+                    <td colspan="2"><button data-all-clear>AC</button></td>
+                    <td><button data-delete>DEL</button></td>
+                    <td><button data-operation>/</button></td>
+                </tr>
+
+                <tr>
+                    <td><button data-number>1</button></td>
+                    <td><button data-number>2</button></td>
+                    <td><button data-number>3</button></td>
+                    <td><button data-operation>*</button></td>
+                </tr>
+                <tr>
+                    <td><button data-number>4</button></td>
+                    <td><button data-number>5</button></td>
+                    <td><button data-number>6</button></td>
+                    <td><button data-operation data-key="plus">+</button></td>
+                </tr>
+                <tr>
+                    <td><button data-number>7</button></td>
+                    <td><button data-number>8</button></td>
+                    <td><button data-number>9</button></td>
+                    <td><button data-operation data-key="minus">-</button></td>
+                </tr>
+                <tr>
+                    <td><button data-number>.</button></td>
+                    <td><button data-number>0</button></td>
+                    <td colspan="2"><button data-equals>=</button></td>
+                </tr>
+            </table>
+        </div>
+        <div id='app' class="clock" role="application">
+            <div class="top-bar">
+                <img src="/assets/img/Icon(cyan).png" alt="logo" class="logo">
+                <p>Clock</p>
+                <div class="buttons">
+                    <div id="btn" class="minimize">
+                        <img src="assets/svgs/minimize.svg" alt="">
+                    </div>
+                    <div id="btn" class="maximize">
+                        <img src="assets/svgs/maximize.svg" alt="">
+                    </div>
+                    <div id="btn" class="close">
+                        <img src="assets/svgs/close.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="clock-app">
+
+            </div>
+        </div>
+        <div id='app' class="tictactoe" role="application">
+            <div class="top-bar">
+                <img src="/assets/img/Icon(cyan).png" alt="logo" class="logo">
+                <p>Tic-Tac-Toe</p>
+                <div class="buttons">
+                    <div id="btn" class="minimize">
+                        <img src="assets/svgs/minimize.svg" alt="">
+                    </div>
+                    <div id="btn" class="maximize">
+                        <img src="assets/svgs/maximize.svg" alt="">
+                    </div>
+                    <div id="btn" class="close">
+                        <img src="assets/svgs/close.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id='app' class="settings" role="application">
+            <div class="top-bar">
+                <img src="/assets/img/Icon(cyan).png" alt="logo" class="logo">
+                <p>Settings</p>
+                <div class="buttons">
+                    <div id="btn" class="minimize">
+                        <img src="assets/svgs/minimize.svg" alt="">
+                    </div>
+                    <div id="btn" class="maximize">
+                        <img src="assets/svgs/maximize.svg" alt="">
+                    </div>
+                    <div id="btn" class="close" onclick="">
+                        <img src="assets/svgs/close.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="widget">
+            <div class="datetime">
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+        <script type="module" src="./main.js"></script>
+        <script type="module" src="./components/Calculator.js"></script>
+        <script type="module" src="./components/Clock.js"></script>
+    </body>
+
+</html>
