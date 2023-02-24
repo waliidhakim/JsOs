@@ -1,0 +1,226 @@
+:root {
+    --diametre-montre: 500px;
+    --point-centre-diametre: 20px;
+    --hauteur-trait-minute: calc(var(--diametre-montre) / 5 * 4 /2);
+    --hauteur-trait-heure: calc(var(--diametre-montre) / 5 * 3 / 2);
+    --hauteur-trait-seconde: calc(var(--diametre-montre) / 5 * 3.5 / 2);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.clock-dial {
+    width: var(--diametre-montre);
+    height: var(--diametre-montre);
+    border: 20px solid #00818a;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.point {
+    width: var(--point-centre-diametre);
+    height: var(--point-centre-diametre);
+    background-color: #283149;
+    border-radius: 50%;
+    position: absolute;
+    top: calc((var(--diametre-montre) - var(--point-centre-diametre))/2);
+    left: calc((var(--diametre-montre) - var(--point-centre-diametre))/2);
+}
+
+.hour {
+    font-size: 30px;
+    font-weight: bold;
+    color: #283149;
+    position: absolute;
+    /* border: 3px solid black;
+    border-radius: 50%; */
+}
+
+.hour-12 {
+    top: 10px;
+    left: calc(var(--diametre-montre)/2 - 15px);
+    /* left: 235px; */
+}
+
+.hour-1 {
+    /* top: 40px; */
+    top: 40px;
+    right: calc(var(--diametre-montre)/4 - 5px);
+    /* right: 130px; */
+}
+
+.hour-2 {
+    top: calc(var(--diametre-montre)/4);
+    /* top: 125px; */
+    right: 45px;
+}
+
+.hour-3 {
+    top: calc(var(--diametre-montre)/2 - 15px);
+    /* top: 235px; */
+    right: 10px;
+}
+
+.hour-4 {
+    top: 345px;
+    /* top: 345px; */
+    right: 40px;
+}
+
+.hour-5 {
+    top: 430px;
+    right: calc(var(--diametre-montre)/4 + 5px);
+    /* right: 130px; */
+}
+
+.hour-6 {
+    bottom: 10px;
+    left: calc(var(--diametre-montre)/2 - 10px);
+    /* left: 240px; */
+}
+
+.hour-7 {
+    top: 430px;
+    left: 130px;
+}
+
+.hour-8 {
+    top: 345px;
+    left: 45px;
+}
+
+.hour-9 {
+    top: calc(var(--diametre-montre)/2 - 15px);
+    /* top: 235px; */
+    left: 10px;
+}
+
+.hour-10 {
+    top: calc(var(--diametre-montre)/4 - 5px);
+    /* top: 125px; */
+    left: 45px;
+}
+
+.hour-11 {
+    top: 40px;
+    /* left: 130px; */
+    left: calc(var(--diametre-montre)/4 + 5px);
+}
+
+.nomOs {
+    font-size: 20px;
+    font-weight: bolder;
+    color: #00818a;
+    position: absolute;
+    top: 90px;
+    left: 45%;
+}
+
+.minute-fleche-wrapper {
+    width: calc(var(--diametre-montre) / 5 * 4);
+    height: calc(var(--diametre-montre) / 5 * 4);
+    /* background-color: #123456; */
+    position: absolute;
+    /* top: 50px;
+    left: 50px; */
+    top: calc(var(--diametre-montre) / 10);
+    left: calc(var(--diametre-montre) / 10);
+    border-radius: 50%;
+}
+
+.minute-fleche {
+    position: relative;
+}
+
+
+.minute-fleche .trait {
+    width: 4px;
+    height: calc(var(--diametre-montre) / 5 * 4 /2);
+    /* height: 200px; */
+    background-color: #404b69;
+    position: absolute;
+    /* left: 198px; */
+    left: calc(var(--hauteur-trait-minute) - 2px);
+}
+
+.minute-fleche .fleche {
+    font-size: 30px;
+    font-weight: bold;
+    color: #404b69;
+    transform: rotate(180deg);
+    position: absolute;
+    /* left: 190px; */
+    left: calc(var(--hauteur-trait-minute) - 10px);
+    top: -7px;
+}
+
+
+
+.heure-fleche-wrapper {
+    width: calc(var(--diametre-montre) / 5 * 3);
+    height: calc(var(--diametre-montre) / 5 * 3);
+    /* background-color: #123456; */
+    position: absolute;
+    /* top: 100px;
+    left: 100px; */
+    top: calc(var(--diametre-montre) / 5);
+    left: calc(var(--diametre-montre) / 5);
+    border-radius: 50%;
+}
+
+.heure-fleche {
+    position: relative;
+}
+
+.heure-fleche .trait {
+    width: 4px;
+    height: var(--hauteur-trait-heure);
+    /* height: 150px; */
+    background-color: #404b69;
+    position: absolute;
+    /* left: 148px; */
+    left: calc(var(--hauteur-trait-heure) - 2px)
+}
+
+.heure-fleche .fleche {
+    font-size: 30px;
+    font-weight: bold;
+    color: #404b69;
+    transform: rotate(180deg);
+    position: absolute;
+    /* left: 140px; */
+    left: calc(var(--hauteur-trait-heure) - 10px);
+    top: -7px;
+}
+
+
+.seconde-fleche-wrapper {
+    width: calc(var(--diametre-montre) / 5 * 3.5);
+    height: calc(var(--diametre-montre) / 5 * 3.5);
+    /* background-color: #123456; */
+    position: absolute;
+
+    top: calc(var(--diametre-montre) / (20/3));
+    left: calc(var(--diametre-montre) / (20/3));
+    /* top: 75px;
+    left: 75px; */
+    border-radius: 50%;
+}
+
+.seconde-fleche {
+    position: relative;
+}
+
+.seconde-fleche .trait {
+    width: 2px;
+    height: var(--hauteur-trait-seconde);
+    /* height: 175px; */
+    background-color: #404b69;
+    position: absolute;
+    /* left: 174px; */
+    left: calc(var(--hauteur-trait-seconde) - 1px);
+}
