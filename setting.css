@@ -1,0 +1,27 @@
+#myDIV-1 {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    display: none;
+    background-color: lightblue;
+    margin-top:20px;
+  }
+  
+  #myDIV-2 {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    display: none;
+    background-color: lightgreen;
+    margin-top:20px;
+  }
+  
+  #myDIV-3 {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    display: none;
+    background-color: pink;
+    margin-top:20px;
+  }
+  
