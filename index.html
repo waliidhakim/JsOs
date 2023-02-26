@@ -6,13 +6,40 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Zak & Walid^2 Mini Os</title>
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="battery.css">
+        <link rel="stylesheet" href="calculator.css">
+        <link rel="stylesheet" href="tic-tac-toe.css">
+        <link rel="stylesheet" href="horloge.css">
     </head>
 
     <body>
         <!-- <img class="bg" src="./assets/img/bg_ls(cyan).png" alt=""> -->
+        <header>
+            <div class="group">
+                <ul class="navigation">
+                    <li><i class="fa-solid fa-wifi"></i> 120 / ms</li>
+                    <li><div id="date"></div></li>
+                    <li> <div id="clock"></div></li>
+                    <li style="display: flex;align-items: center;">
+                        <div class="battery__pill">
+                        <div class="battery__level">
+                            <div class="battery__liquid"></div>
+                        </div>
+                    </div>
+                        <div class="battery__data">
+                            <h1 class="battery__percentage">
+                                20%
+                            </h1>
+                            <p class="battery__status">
+                                Low battery <i class="ri-plug-line"></i>
+                            </p>
+                        </div></li>
+                </ul>
+            </div>
+        </header>
+
         <nav class="nav-container">
             <div class="nav">
                 <div class="nav-elements">
@@ -76,42 +103,47 @@
                     </div>
                 </div>
             </div>
-            <table class="calculator-grid">
-                <div class="output">
-                    <div data-previous-operand class="previous-operand"></div>
-                    <div data-current-operand class="current-operand"></div>
+            <div class="calculator">
+                <div class="screen">
+                    <div class="screen-last" id="lastOperationScreen"></div>
+                    <div class="screen-current" id="currentOperationScreen">0</div>
                 </div>
-
-                <tr>
-                    <td colspan="2"><button data-all-clear>AC</button></td>
-                    <td><button data-delete>DEL</button></td>
-                    <td><button data-operation>/</button></td>
-                </tr>
-
-                <tr>
-                    <td><button data-number>1</button></td>
-                    <td><button data-number>2</button></td>
-                    <td><button data-number>3</button></td>
-                    <td><button data-operation>*</button></td>
-                </tr>
-                <tr>
-                    <td><button data-number>4</button></td>
-                    <td><button data-number>5</button></td>
-                    <td><button data-number>6</button></td>
-                    <td><button data-operation data-key="plus">+</button></td>
-                </tr>
-                <tr>
-                    <td><button data-number>7</button></td>
-                    <td><button data-number>8</button></td>
-                    <td><button data-number>9</button></td>
-                    <td><button data-operation data-key="minus">-</button></td>
-                </tr>
-                <tr>
-                    <td><button data-number>.</button></td>
-                    <td><button data-number>0</button></td>
-                    <td colspan="2"><button data-equals>=</button></td>
-                </tr>
-            </table>
+                <div class="buttons-grid">
+                    <button
+                            class="btn btn-red span-2"
+                            id="clearBtn"
+                            onclick="this.blur();"
+                    >
+                        CLEAR
+                    </button>
+                    <button
+                            class="btn btn-blue span-2"
+                            id="deleteBtn"
+                            onclick="this.blur();"
+                    >
+                        DELETE
+                    </button>
+                    <button class="btn" onclick="this.blur();" data-number>7</button>
+                    <button class="btn" onclick="this.blur();" data-number>8</button>
+                    <button class="btn" onclick="this.blur();" data-number>9</button>
+                    <button class="btn" onclick="this.blur();" data-operator>÷</button>
+        
+                    <button class="btn" onclick="this.blur();" data-number>4</button>
+                    <button class="btn" onclick="this.blur();" data-number>5</button>
+                    <button class="btn" onclick="this.blur();" data-number>6</button>
+                    <button class="btn" onclick="this.blur();" data-operator>×</button>
+        
+                    <button class="btn" onclick="this.blur();" data-number>1</button>
+                    <button class="btn" onclick="this.blur();" data-number>2</button>
+                    <button class="btn" onclick="this.blur();" data-number>3</button>
+                    <button class="btn" onclick="this.blur();" data-operator>−</button>
+        
+                    <button class="btn" onclick="this.blur();" id="pointBtn">.</button>
+                    <button class="btn" onclick="this.blur();" data-number>0</button>
+                    <button class="btn" onclick="this.blur();" id="equalsBtn">=</button>
+                    <button class="btn" onclick="this.blur();" data-operator>+</button>
+                </div>
+            </div>
         </div>
         <div id='app' class="clock" role="application">
             <div class="top-bar">
@@ -130,7 +162,61 @@
                 </div>
             </div>
             <div class="clock-app">
-
+                <section class="container-horloge">
+                    <h1>CHRONO</h1>
+                    <div class="watch">
+                        <h2 id="watch">00:00:00:00</h2>
+                    </div>
+                    <div class="buttons">
+                        <button id="start">Start</button>
+                        <button id="pause">Pause</button>
+                        <button id="reset">Reset</button>
+                    </div>
+                </section>
+                <div class="container-horloge">
+                    <h1>MINUTEUR</h1>
+                    <!-- form -->
+                    <form class="form">
+                      <!-- countdown time input field -->
+                      <input type="number" min="1" class="time-input" placeholder="Enter Countdown">
+                      <!-- options -->
+                      <select name="format">
+                        <option value="hours">Hours</option>
+                        <option value="minutes">Minutes</option>
+                        <option value="seconds">Seconds</option>
+                      </select>
+                      <!-- submit button or set button -->
+                      <button type="submit" class="set-btn">SET</button>
+                    </form>
+                    <!-- countdown text -->
+                    <p class="countdown">00 : 00 : 00</p>
+                
+                    <!-- buttons -->
+                    <div class="buttons">
+                      <button class="stop-btn" disabled>STOP</button>
+                      <button class="reset-btn" disabled>RESET</button>
+                    </div>
+                  </div>
+                  <!--horloge-->
+                  <div class="container">
+                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                      <div class="flipper">
+                        <div class="front">
+                          <div id="time-widget" class="outer-square setter time">
+                            <div id="do-time"></div>
+                          </div>
+                        </div>
+                        <div class="back">
+                          <div class="calendar-wrapper">
+                            <button id="btnPrev" type="button">Prev</button>
+                            <button id="btnNext" type="button">Next</button>
+                            <div id="divCal"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
             </div>
         </div>
         <div id='app' class="tictactoe" role="application">
@@ -147,6 +233,36 @@
                     <div id="btn" class="close">
                         <img src="assets/svgs/close.svg" alt="">
                     </div>
+                </div>
+            </div>
+            <div class="tictactoe-app">
+                <div class="container">
+                    <section class="col-lg-12">
+                        <div id="Jeu">
+                            <div>
+                                <button type="button" class="btn btn-secondary"></button>
+                                <button type="button" class="btn btn-secondary"></button>
+                                <button type="button" class="btn btn-secondary"></button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-secondary"></button>
+                                <button type="button" class="btn btn-secondary"></button>
+                                <button type="button" class="btn btn-secondary"></button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-secondary"></button>
+                                <button type="button" class="btn btn-secondary"></button>
+                                <button type="button" class="btn btn-secondary"></button>
+                            </div>
+        
+                            <div id="StatutJeu"></div>
+                        </div>
+                        <footer class="pied" style="margin-top: 15px;">
+                            <div class="container">
+                            </div>
+                        </footer>
+                    </section>
+    
                 </div>
             </div>
         </div>
@@ -166,16 +282,41 @@
                     </div>
                 </div>
             </div>
+            <div class="setting">
+                <p>Click the "Show" links to toggle between hiding and showing the DIV element:</p>
+
+<a href="#" onclick="myFunction('1')">Show 1</a>
+<a href="#" onclick="myFunction('2')">Show 2</a>
+<a href="#" onclick="myFunction('3')">Show 3</a>
+
+<div id="myDIV-1">
+   This is my DIV element.<br />
+</div>
+
+<div id="myDIV-2">
+   This is my DIV element.<br />
+</div>
+
+<div id="myDIV-3">
+   This is my DIV element.<br />
+</div>
+
+<p><b>Note:</b> The element will not take up any space when the display property set to "none".</p>
+            </div>
         </div>
         <div class="widget">
             <div class="datetime">
-                <p></p>
-                <p></p>
             </div>
         </div>
         <script type="module" src="./main.js"></script>
         <script type="module" src="./components/Calculator.js"></script>
         <script type="module" src="./components/Clock.js"></script>
+        <script src="script.js"></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="module" src="./components/tic-tac-toe.js"></script>
+        <script type="module" src="./components/Clock.js"></script>
+        <script type="module" src="./components/setting.js"></script>
     </body>
 
 </html>
