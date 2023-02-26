@@ -98,6 +98,9 @@ body::after {
     pointer-events: none;
     animation: flicker 0.15s infinite;
 }
+label{
+    color: aliceblue;
+}
 
 body {
     /* background: url('img/light_jelly.jpg') no-repeat center center fixed;
@@ -150,7 +153,9 @@ body {
     transition: .3s;
 
 }
-
+.hidden {
+    display: none;
+}
 .nav::before {
     content: "";
     position: absolute;

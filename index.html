@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="calculator.css">
         <link rel="stylesheet" href="tic-tac-toe.css">
         <link rel="stylesheet" href="horloge.css">
+        <link rel="stylesheet" href="setting.css">
     </head>
 
     <body>
@@ -19,9 +20,10 @@
         <header>
             <div class="group">
                 <ul class="navigation">
-                    <li><i class="fa-solid fa-wifi"></i> 120 / ms</li>
-                    <li><div id="date"></div></li>
-                    <li> <div id="clock"></div></li>
+                    <li id="hidden_reseau"><i class="fa-solid fa-wifi"></i> 120 / ms</li>
+                    <li id="hidden_date"><div id="date"></div></li>
+                    <li><i class="fa-solid fa-bell"></i></li>
+                    <li id="hidden_heure"> <div id="clock"></div></li>
                     <li style="display: flex;align-items: center;">
                         <div class="battery__pill">
                         <div class="battery__level">
@@ -29,7 +31,7 @@
                         </div>
                     </div>
                         <div class="battery__data">
-                            <h1 class="battery__percentage">
+                            <h1 class="battery__percentage" id="hidden_batterie">
                                 20%
                             </h1>
                             <p class="battery__status">
@@ -283,25 +285,56 @@
                 </div>
             </div>
             <div class="setting">
-                <p>Click the "Show" links to toggle between hiding and showing the DIV element:</p>
-
-<a href="#" onclick="myFunction('1')">Show 1</a>
-<a href="#" onclick="myFunction('2')">Show 2</a>
-<a href="#" onclick="myFunction('3')">Show 3</a>
-
-<div id="myDIV-1">
-   This is my DIV element.<br />
-</div>
-
-<div id="myDIV-2">
-   This is my DIV element.<br />
-</div>
-
-<div id="myDIV-3">
-   This is my DIV element.<br />
-</div>
-
-<p><b>Note:</b> The element will not take up any space when the display property set to "none".</p>
+                <div class="toogle">
+                    <div class="item">
+                        <h4 onclick="toogle(this);">latence réseau<span>></span></h4>
+                        <div class="item-details">
+                            <label>afficher la latence réseau</label>
+                            <select id="test" name="form_select" onchange="showDiv('hidden_reseau', this)">
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                             </select>            
+                        </div>
+                    </div>
+                    <div class="item">
+                        <h4 onclick="toogle(this);">horloge & Date<span>></span></h4>
+                        <div class="item-details">
+                            <label >afficher l'heure:</label>
+                            <select id="heure" name="form_select" onchange="showDiv('hidden_heure', this)">
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                             </select>   
+                             <label >minutes:</label>
+                            <select id="minute" name="form_select" >
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                             </select>  
+                             <label >seconde:</label>
+                            <select id="seconde" name="form_select" >
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                             </select><br>
+                             <label >afficher date:</label>
+                             <select id="mois" name="form_select" onchange="showDiv('hidden_date', this)">
+                                 <option value="1">Yes</option>
+                                 <option value="0">No</option>
+                              </select>   
+                              
+                        </div>
+                    </div>
+                    <div class="item">
+                        <h4 onclick="toogle(this);">Date<span>></span></h4>
+                        <div class="item-details">
+                            <label >afficher le pourcentage de la batterie:</label>
+                            <select id="mois" name="form_select" onchange="showDiv('hidden_batterie', this)">
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                             </select>   
+                                        
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
         <div class="widget">
@@ -316,7 +349,17 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script type="module" src="./components/tic-tac-toe.js"></script>
         <script type="module" src="./components/Clock.js"></script>
-        <script type="module" src="./components/setting.js"></script>
+        <script type="text/javascript">function toogle(that){
+            let item = document.querySelectorAll(".item");
+            for (var i of item) {
+                that.parentElement.classList.toggle("active");
+            }
+            }
+            function showDiv(divId, element)
+{
+    document.getElementById(divId).style.display = element.value == 1 ? 'block' : 'none';
+}
+        </script>
     </body>
 
 </html>

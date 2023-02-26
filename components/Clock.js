@@ -358,3 +358,9 @@ window.onload = function() {
 function getId(id) {
   return document.getElementById(id);
 }
+function toogle(that){
+  let item = document.querySelectorAll(".item");
+  for (var i of item) {
+      that.parentElement.classList.toggle("active");
+  }
+  }

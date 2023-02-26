@@ -1,27 +1,8 @@
-#myDIV-1 {
-    width: 100%;
-    padding: 50px 0;
-    text-align: center;
-    display: none;
-    background-color: lightblue;
-    margin-top:20px;
-  }
-  
-  #myDIV-2 {
-    width: 100%;
-    padding: 50px 0;
-    text-align: center;
-    display: none;
-    background-color: lightgreen;
-    margin-top:20px;
-  }
-  
-  #myDIV-3 {
-    width: 100%;
-    padding: 50px 0;
-    text-align: center;
-    display: none;
-    background-color: pink;
-    margin-top:20px;
-  }
-  
+.item{background: url('./assets/img/bg_ls(red).png');
+  margin-bottom:20px;font-family:arial;}	
+.item-details{display:none;padding:15px;}
+.item.active .item-details{display:block;}
+h4{padding:15px;margin:0;color: aliceblue;}
+h4 span{float:right;}
+p{margin:0;color: aliceblue;}
+.item.active h4 span{transform: rotate(0.25turn);}

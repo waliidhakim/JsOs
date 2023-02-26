@@ -1,11 +1,6 @@
-function myFunction(y) {
-    if (y === undefined) {
-       y = 1;
+function toogle(that){
+    let item = document.querySelectorAll(".item");
+    for (var i of item) {
+        that.parentElement.classList.toggle("active");
     }
-    var x = document.getElementById('myDIV-'+y);
-    if (x.style.display === 'block') {
-      x.style.display = 'none';
-    } else {
-      x.style.display = 'block';
     }
- }

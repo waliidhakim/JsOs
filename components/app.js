@@ -1,7 +1,6 @@
 export function App(appElement) {
     const buttons = appElement.querySelectorAll('#btn');
     const appButtons = [...document.querySelectorAll('.icon'), ...document.querySelectorAll('.minim-icon')];
-    console.log(appButtons)
     const calculator = document.querySelector('.calculator');
     const clock = document.querySelector('.clock');
     const tictactoe = document.querySelector('.tictactoe');
@@ -23,13 +22,11 @@ export function App(appElement) {
                 calculator.classList.add('visible')
                 calculator.classList.remove('minimized')
                 calculator.classList.remove('closed')
-                console.log('calc')
             }
             if (appButton.id.includes('clock-icon')) {
                 clock.classList.add('visible')
                 clock.classList.remove('minimized')
                 clock.classList.remove('closed')
-                console.log('clock')
             }
             if (appButton.id.includes('tictactoe-icon')) {
                 tictactoe.classList.add('visible')

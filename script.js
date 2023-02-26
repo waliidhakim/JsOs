@@ -61,12 +61,27 @@ function currentTime() {
     var hour = date.getHours();
     var min = date.getMinutes();
     var sec = date.getSeconds();
-
+    ValeurH = document.getElementById("heure");
+    ValeurM = document.getElementById("minute");
+    ValeurS = document.getElementById("seconde");
     hour = updateTime(hour);
     min = updateTime(min);
     sec = updateTime(sec);
-    document.getElementById("clock").innerText =
-        hour + " : " + min + " : " + sec;
+
+        if(ValeurH.value==1){
+            document.getElementById("clock").innerText =
+                hour + " h " ;
+                if(ValeurM.value==1){
+                    document.getElementById("clock").innerText =
+                        hour + " h " + min + " m ";
+                        if(ValeurS.value==1){
+                            document.getElementById("clock").innerText =
+                                hour + " h " + min + " m " + sec;
+                                
+                        }
+                }
+                }
+                
 
     var s = setTimeout(function(){currentTime() }, 1000);
 }
@@ -86,9 +101,12 @@ var curday = function(){
     var dd = today.getDate();
     var mm = today.getMonth()+1; //As January is 0.
     var yyyy = today.getFullYear();
-
+    ValeurJ = document.getElementById("jour");
+    ValeurM = document.getElementById("mois");
+    ValeurA = document.getElementById("annee");
     if(dd<10) dd='0'+dd;
     if(mm<10) mm='0'+mm;
-    document.getElementById("date").innerHTML = (mm+'/'+dd+'/'+yyyy);
+                document.getElementById("date").innerHTML = (mm+'/'+dd+'/'+yyyy);
+               
 };
 curday();
