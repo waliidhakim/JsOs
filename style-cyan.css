@@ -1083,3 +1083,6 @@ header ul li a:hover::before {
     height: 100%;
     background-color: cyan;
 }
+.vibre {
+    cursor: pointer;
+}

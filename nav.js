@@ -1,10 +1,3 @@
-let latency = document.querySelector('.latency');
-
-setInterval(() => {
-    latency.style.height = navigator.connection.downlink * 10 + 'px';
-}, 1000);
-initBattery()
-
 function initBattery() {
     const batteryLiquid = document.querySelector('.battery__liquid'),
         batteryStatus = document.querySelector('.battery__status'),
@@ -117,4 +110,28 @@ curday();
 function showDiv(divId, element) {
     document.getElementById(divId).style.display = element.value == 1 ? 'block' : 'none';
 }
+//Vibration
+function activate(){
+  bool =  document.getElementById("hidden_vibrate");
+if(bool.dataset.vibrate=="true"){
+    bool.setAttribute("data-vibrate", "false");
+    bool.innerHTML = '<span class="material-icons red-color vibre">phone_iphone</span>';
+}else{
+    bool.setAttribute("data-vibrate", "true");
+    bool.innerHTML = '<span class="material-icons red-color vibre">vibration</span>';
+}
+
+}
+// Parcourir la collection d'éléments et ajouter un événement "click" à chacun
+const mesBoutons = document.getElementsByClassName("vibre");
+for (let i = 0; i < mesBoutons.length; i++) {
+  mesBoutons[i].addEventListener("click", function() {
+    if(document.getElementById("hidden_vibrate").dataset.vibrate=='true'){
+    window.navigator.vibrate(200);
+  }else{
+    return;
+  }});
+}
+
+
 
