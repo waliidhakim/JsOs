@@ -3,7 +3,7 @@ import { App } from './components/app.js'
 document.addEventListener('DOMContentLoaded', () => {
     const calculatorApp = document.querySelector('.calculator');
     new App(calculatorApp, 'calculator');
-    
+
     const clockApp = document.querySelector('.clock');
     new App(clockApp, 'clock');
 
@@ -14,4 +14,3 @@ document.addEventListener('DOMContentLoaded', () => {
     new App(settingsApp, 'settings');
 
 });
-

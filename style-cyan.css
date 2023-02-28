@@ -1,0 +1,1085 @@
+@keyframes flicker {
+    0% {
+        opacity: 0.27861;
+    }
+
+    5% {
+        opacity: 0.34769;
+    }
+
+    10% {
+        opacity: 0.23604;
+    }
+
+    15% {
+        opacity: 0.90626;
+    }
+
+    20% {
+        opacity: 0.18128;
+    }
+
+    25% {
+        opacity: 0.83891;
+    }
+
+    30% {
+        opacity: 0.65583;
+    }
+
+    35% {
+        opacity: 0.67807;
+    }
+
+    40% {
+        opacity: 0.26559;
+    }
+
+    45% {
+        opacity: 0.84693;
+    }
+
+    50% {
+        opacity: 0.96019;
+    }
+
+    55% {
+        opacity: 0.08594;
+    }
+
+    60% {
+        opacity: 0.20313;
+    }
+
+    65% {
+        opacity: 0.71988;
+    }
+
+    70% {
+        opacity: 0.53455;
+    }
+
+    75% {
+        opacity: 0.37288;
+    }
+
+    80% {
+        opacity: 0.71428;
+    }
+
+    85% {
+        opacity: 0.70419;
+    }
+
+    90% {
+        opacity: 0.7003;
+    }
+
+    95% {
+        opacity: 0.36108;
+    }
+
+    100% {
+        opacity: 0.24387;
+    }
+}
+
+body::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(18, 16, 16, 0.1);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    animation: flicker 0.15s infinite;
+}
+
+body {
+    /* background: url('img/light_jelly.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; */
+    background: url('./assets/img/bg_ls(cyan).png');
+    background-size: cover;
+    max-height: 100vh;
+    height: 100vh;
+    padding: 20px 0;
+    align-items: center;
+    overflow: hidden;
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    /* object-fit: contain; */
+    width: 100%;
+    height: 100%;
+}
+
+.nav-container {
+    height: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    overflow: hidden;
+}
+
+.nav {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid cyan;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 255, 255, 0.199);
+    padding-top: 1em;
+    margin: 0px 10px;
+    /* border-radius: 24px; */
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    clip-path: polygon(82% 0, 100% 4%, 100% 50%, 100% 96%, 82% 100%, 0 100%, 0 0);
+    justify-content: space-evenly;
+    transform: translateX(-100%);
+    transition: .3s;
+
+}
+
+.nav::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80vh;
+    height: 100%;
+    background: url('./assets/svgs/band.svg') no-repeat center center fixed;
+    z-index: 1;
+    transform: translateX(-100%);
+    transform: rotate(90deg);
+    transition: .3s;
+}
+
+.nav:hover {
+    transform: translateX(-15%);
+    transition: .3s;
+}
+
+.nav .nav-elements {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav .minim-icon {
+    margin: 1em auto;
+    padding: 10px;
+    text-align: center;
+    transition: .7s;
+    cursor: pointer;
+    /* background-color: red; */
+    z-index: 2;
+}
+
+.nav .minim-icon i {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: cyan;
+    z-index: 0;
+}
+
+.nav a:hover,
+.menu-icon:hover+#nav a {
+    transition: .7s;
+    text-shadow:
+        0 0 2px #000000,
+        0 0 5px #000000,
+        0 0 10px #000000,
+        0 0 70px #000000,
+        0 0 80px #000000,
+        0 0 90px #000000,
+        0 0 120px #000000,
+        0 0 150px #000000;
+}
+
+a img {
+    display: flex;
+    justify-content: flex;
+    justify-items: center;
+}
+
+.menu-icon {
+    margin: auto;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.version {
+    color: cyan;
+    margin: auto;
+    text-align: center;
+    font-family: Rajdhani, sans-serif;
+    font-size: 16px;
+}
+
+.visible {
+    display: block !important;
+    transition: .3s;
+}
+
+.app-list {
+    position: relative;
+    width: 80%;
+    max-width: 700px;
+    height: 100vh !important;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    z-index: 3;
+}
+
+.app-list .icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-list .icon-wrapper p {
+    color: cyan;
+    /* transform: translateY(-150%);
+    opacity: 0; */
+    font-family: Rajdhani, sans-serif;
+}
+
+.app-list .icon-wrapper p:hover,
+.app-list .icon:hover+.app-list .icon-wrapper p {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    transition: .7s;
+}
+
+.app-list .icon {
+    padding: 1.5em;
+    font-size: min(2em, 4vw);
+    border: 1px solid cyan;
+    color: cyan;
+    transition: all .3s;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.app-list .icon:hover {
+    transition: .7s;
+    background-color: rgba(0, 255, 255, 0.199);
+    backdrop-filter: blur(5px);
+    text-shadow:
+        0 0 2px #000000,
+        0 0 5px #000000,
+        0 0 10px #000000,
+        0 0 70px #000000,
+        0 0 80px #000000,
+        0 0 90px cyan,
+        0 0 120px cyan,
+        0 0 150px cyan;
+}
+
+#app {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    /* min-width: 400px;
+    min-height: 600px; */
+    transform: translate(-50%, -50%);
+    border: 1px solid cyan;
+    background-color: rgb(0, 68, 68);
+    z-index: 4;
+    transition: .3s;
+    display: none;
+}
+
+#app .top-bar {
+    position: relative;
+    top: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid cyan;
+}
+
+#app .top-bar .logo {
+    width: 30px;
+    height: 30px;
+    margin: 5px 10px;
+}
+
+#app .top-bar p {
+    color: cyan;
+    margin: 0 10px;
+    font-size: 1.5em;
+    font-family: Rajdhani, sans-serif;
+}
+
+#app .top-bar .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+#app .top-bar .buttons .close:hover,
+#app .top-bar .buttons .minimize:hover,
+#app .top-bar .buttons .maximize:hover {
+    cursor: pointer;
+    background-color: cyan;
+}
+
+#app .top-bar .buttons .close img,
+#app .top-bar .buttons .minimize img,
+#app .top-bar .buttons .maximize img {
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    background-color: cyan;
+}
+
+.maximized {
+    width: 99.9% !important;
+    height: 93% !important;
+    top: 10% !important;
+    left: 0 !important;
+    transform: translate(0, 0) !important;
+    transition: .3s !important;
+}
+
+.minimized {
+    width: 0 !important;
+    height: 0 !important;
+    pointer-events: none;
+    opacity: 0 !important;
+    position: absolute !important;
+    display: none;
+    left: 0 !important;
+    top: 50vh !important;
+    transition: .4s !important;
+}
+
+.minimized * {
+    display: none !important;
+}
+
+.closed {
+    height: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none;
+    display: none;
+    transition: .3s !important;
+    transform: translateY(19em) !important;
+    /* border: none !important; */
+}
+
+.closed * {
+    display: none !important;
+}
+
+.calculator {
+    max-width: 400px;
+    height: fit-content;
+}
+
+.calculator-grid {
+    height: fit-content;
+    width: 100%;
+}
+
+.calculator-grid tr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator-grid tr td {
+    background-color: rgba(0, 255, 255, 0.226);
+    border: 1px solid cyan;
+    width: 100%;
+    /* height: 3em; */
+}
+
+.calculator-grid tr td>button {
+    font-size: 2rem;
+    font-family: Rajdhani, sans-serif;
+    color: cyan;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background: none;
+    border: none;
+    margin: auto;
+    outline: none;
+}
+
+.calculator-grid tr td:hover {
+    background-color: cyan;
+}
+
+.calculator-grid tr td:hover>button {
+    color: black;
+}
+
+.output {
+    background-color: rgba(1, 20, 20, 0.75);
+    display: flex;
+    height: 150px;
+    border: 1px solid cyan;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    color: cyan;
+    font-size: 1.5rem;
+    font-family: Rajdhani, sans-serif;
+}
+
+.output .current-operand {
+    color: cyan;
+    font-size: 2.5rem;
+    font-family: Rajdhani, sans-serif;
+}
+
+
+.clock .clock-app {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1px 5px;
+}
+
+.clock .clock-app .watch i {
+    font-size: 2em;
+    color: cyan;
+}
+
+.clock .clock-app .watch h1 {
+    font-family: Rajdhani, sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+    color: cyan;
+}
+
+.clock .clock-app .chrono {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock .clock-app p {
+    font-family: Rajdhani, sans-serif;
+    font-weight: 400;
+    color: cyan;
+}
+
+.clock .clock-app .chrono ul li {
+    font-family: Rajdhani, sans-serif;
+    font-weight: 400;
+    list-style-type: none;
+    color: cyan;
+}
+
+.clock .clock-app .chrono h1 {
+    font-family: Rajdhani, sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+    color: cyan;
+}
+
+.clock .clock-app .chrono h1 i {
+    font-size: 1em;
+    color: cyan;
+    margin-right: 8px;
+}
+
+.clock .clock-app .chrono button {
+    background: none;
+    border: 1px solid cyan;
+    color: cyan;
+    cursor: pointer;
+}
+
+.clock .clock-app .chrono button:hover {
+    background-color: rgba(1, 186, 186, 0.899);
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    margin: auto;
+    grid-gap: 10px;
+    width: 80%;
+    height: 60%;
+}
+
+.timer input {
+    border: 1px solid cyan;
+    background: none;
+    color: cyan;
+    padding: 5px 10px;
+    font-family: Rajdhani, sans-serif;
+}
+
+.timer select {
+    border: 1px solid cyan;
+    background: none;
+    color: cyan;
+    padding: 5px 10px;
+    font-family: Rajdhani, sans-serif;
+}
+
+.timer button {
+    border: 1px solid cyan;
+    background: none;
+    color: cyan;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#but {
+    border: 3px ridge #333;
+    padding: 10px;
+    text-decoration: none;
+    color: blue;
+}
+
+#but:hover {
+    color: black;
+    background-color: yellow;
+}
+
+#Jeu {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    margin: auto;
+    padding: 10px;
+}
+
+#Jeu button {
+    border: 1px solid cyan;
+    background: none;
+}
+
+#Jeu div {
+    width: 500px;
+    margin: auto;
+    clear: both;
+
+}
+
+#Jeu button {
+    width: 150px;
+    height: 150px;
+    font-weight: bold;
+    font-size: 50px;
+    margin: 8px;
+    float: left;
+    font-family: 'Rajdhani', sans-serif;
+    color: cyan;
+}
+
+#StatutJeu {
+    color: cyan;
+    padding: 15px 10px;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Rajdhani', sans-serif !important;
+
+}
+
+#StatutJeu a {
+    color: cyan;
+    font-family: 'Rajdhani', sans-serif;
+
+}
+
+#pied {
+    text-align: center;
+    font-size: 18px;
+}
+
+.setting {
+    padding: 5px 10px;
+}
+
+.setting .toogle #setting-option {
+    font-family: Rajdhani, sans-serif;
+    color: cyan;
+}
+
+.setting .toogle #setting-option h4 {
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+}
+
+.item {
+    margin-bottom: 20px;
+    font-family: arial;
+}
+
+.item-details {
+    display: none;
+    padding: 15px;
+}
+
+.item.active .item-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item.active .item-details select {
+    padding: 10px 15px;
+    border: 1px solid cyan;
+    background: none;
+    color: cyan;
+}
+
+.setting .toogle .item i {
+    margin-left: 1em;
+    transform: translateY(2px);
+}
+
+.setting .toggle .item h4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 0;
+    color: aliceblue;
+}
+
+.setting .toggle .item h4 span {
+    float: right;
+    transition: .2s;
+}
+
+.setting .toggle .item p {
+    margin: 0;
+    color: aliceblue;
+}
+
+.theme {
+    font-family: 'Rajdhani', sans-serif;
+    color: cyan;
+    font-weight: bold;
+}
+
+.theme select {
+    padding: 5px 15px;
+    border: 1px solid cyan;
+    background: none;
+    color: cyan;
+    margin-left: 10px;
+
+}
+
+.theme select option {
+    color: black;
+}
+
+.item.active h4 span {
+    transform: rotate(0.25turn);
+    transition: .2s;
+}
+
+
+@media (max-width: 800px) {
+
+
+
+    .nav-container {
+        height: 100vw;
+        position: absolute;
+        transform: translate(162px, 617px) rotate(-90deg);
+        z-index: 5;
+    }
+
+    .nav {
+        height: 92%;
+        transform: translate(0, 0);
+    }
+
+    .nav .minim-icon {
+        transform: rotate(90deg);
+    }
+
+    .version {
+        display: none;
+    }
+
+    #app {
+        width: 95vw;
+        height: 90%;
+    }
+
+    #Jeu {
+        overflow: hidden;
+    }
+
+    #Jeu button {
+        width: 22%;
+    }
+
+    #Jeu #StatutJeu {
+        text-align: center;
+        margin: auto;
+        width: fit-content;
+    }
+
+    #hidden_heure {
+        font-size: 15px;
+    }
+
+    .flex {
+        gap: 10px
+    }
+
+    .timer .container .form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .app-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .app-list .icon-wrapper .icon {
+        display: flex;
+    }
+
+    .app-list .icon-wrapper .icon i {
+        font-size: 3em;
+        margin: auto;
+    }
+}
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --gradient-color-red: linear-gradient(90deg,
+            hsl(7, 89%, 46%) 15%,
+            hsl(11, 93%, 68%) 100%);
+    --gradient-color-orange: linear-gradient(90deg,
+            hsl(22, 89%, 46%) 15%,
+            hsl(54, 90%, 45%) 100%);
+    --gradient-color-yellow: linear-gradient(90deg,
+            hsl(54, 89%, 46%) 15%,
+            hsl(92, 90%, 45%) 100%);
+    --gradient-color-green: linear-gradient(90deg,
+            hsl(92, 89%, 46%) 15%,
+            hsl(92, 90%, 68%) 100%);
+    --text-color: #fff;
+    --body-color: hsl(0, 0%, 11%);
+    --container-color: hsl(0, 0%, 9%);
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: 'Rubik', sans-serif;
+
+    --biggest-font-size: 2.5rem;
+    --normal-font-size: .938rem;
+    --smaller-font-size: .75rem;
+}
+
+/* Responsive typography */
+@media screen and (min-width: 968px) {
+    :root {
+        --biggest-font-size: 2.75rem;
+        --normal-font-size: 1rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+/*=============== BATTERY & header ===============*/
+.battery {
+    display: grid;
+    place-items: center;
+    margin: 0 1.5rem;
+}
+
+.battery__card {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    background-color: var(--container-color);
+    padding: 1.5rem 2rem;
+    border-radius: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+.battery__text {
+    margin-bottom: .5rem;
+}
+
+.battery__percentage {
+    font-size: var(--smaller-font-size);
+}
+
+.battery__status {
+    position: absolute;
+    bottom: 1.5rem;
+    display: none;
+    align-items: center;
+    column-gap: .5rem;
+    font-size: var(--smaller-font-size);
+}
+
+.battery__status i {
+    font-size: 1.25rem;
+}
+
+.battery__pill {
+    position: relative;
+    width: 10px;
+    height: 30px;
+    margin: 8px;
+    background-color: var(--container-color);
+    box-shadow: inset 20px 0 48px hsl(0, 0%, 16%),
+        inset -4px 12px 48px hsl(0, 0%, 56%);
+    border-radius: 3rem;
+    justify-self: flex-end;
+}
+
+.battery__level {
+    position: absolute;
+    inset: 2px;
+    border-radius: 3rem;
+    overflow: hidden;
+}
+
+.battery__liquid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 36px;
+    background: var(--gradient-color-red);
+    box-shadow: inset -10px 0 12px hsla(0, 0%, 0%, .1),
+        inset 12px 0 12px hsla(0, 0%, 0%, .15);
+    transition: .3s;
+}
+
+.battery__liquid::after {
+    content: '';
+    position: absolute;
+    height: 8px;
+    background: var(--gradient-color-red);
+    box-shadow: inset 0px -3px 6px hsla(0, 0%, 0%, .2);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: -4px;
+    border-radius: 50%;
+}
+
+/* Full battery icon color */
+.green-color {
+    background: var(--gradient-color-green);
+}
+
+/* Battery charging animation */
+.animated-green {
+    background: var(--gradient-color-green);
+    animation: animated-charging-battery 1.2s infinite alternate;
+}
+
+/* Low battery animation */
+.animated-red {
+    background: var(--gradient-color-red);
+    animation: animated-low-battery 1.2s infinite alternate;
+}
+
+.animated-green,
+.animated-red,
+.green-color {
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+@keyframes animated-charging-battery {
+    0% {
+        text-shadow: none;
+    }
+
+    100% {
+        text-shadow: 0 0 6px hsl(92, 90%, 68%);
+    }
+}
+
+@keyframes animated-low-battery {
+    0% {
+        text-shadow: none;
+    }
+
+    100% {
+        text-shadow: 0 0 8px hsl(7, 89%, 46%);
+    }
+}
+
+/* Liquid battery with gradient color */
+.gradient-color-red,
+.gradient-color-red::after {
+    background: var(--gradient-color-red);
+}
+
+.gradient-color-orange,
+.gradient-color-orange::after {
+    background: var(--gradient-color-orange);
+}
+
+.gradient-color-yellow,
+.gradient-color-yellow::after {
+    background: var(--gradient-color-yellow);
+}
+
+.gradient-color-green,
+.gradient-color-green::after {
+    background: var(--gradient-color-green);
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 320px) {
+    .battery__card {
+        zoom: .8;
+    }
+}
+
+/* For medium devices */
+@media screen and (min-width: 430px) {
+    .battery__card {
+        width: 312px;
+    }
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+    .battery__card {
+        zoom: 1.5;
+    }
+}
+
+header {
+    position: absolute;
+    top: 25px;
+    right: 0;
+    width: 100%;
+    height: 8px;
+    background: none;
+    padding: 20px 40px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    color: cyan;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+}
+
+.group li {
+    color: cyan;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+header ul {
+    position: relative;
+    display: flex;
+    gap: 30px;
+}
+
+header ul li {
+    list-style: none;
+    align-self: center;
+}
+
+header ul li a {
+    position: relative;
+    text-decoration: none;
+    font-size: 1em;
+    color: cyan;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+header ul li a::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: cyan;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+    transform-origin: right;
+}
+
+header ul li a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.latency-container {
+    position: relative;
+    border: 1px solid cyan;
+    width: 20px;
+    height: 15px;
+    border-radius: 25px;
+    margin: auto;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+}
+
+.latency {
+    height: 100%;
+    background-color: cyan;
+}
