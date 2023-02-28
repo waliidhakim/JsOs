@@ -100,16 +100,11 @@ body::after {
 }
 
 body {
-    /* background: url('img/light_jelly.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; */
     background: url('./assets/img/bg_ls(cyan).png');
     background-size: cover;
     max-height: 100vh;
     height: 100vh;
-    padding: 20px 0;
+    display: flex;
     align-items: center;
     overflow: hidden;
 }
@@ -296,6 +291,7 @@ a img {
     position: absolute;
     top: 55%;
     left: 50%;
+    height: auto;
     /* min-width: 400px;
     min-height: 600px; */
     transform: translate(-50%, -50%);
@@ -353,8 +349,8 @@ a img {
 }
 
 .maximized {
-    width: 99.9% !important;
-    height: 93% !important;
+    width: 99.8% !important;
+    height: 89.5% !important;
     top: 10% !important;
     left: 0 !important;
     transform: translate(0, 0) !important;
@@ -381,9 +377,9 @@ a img {
     height: 0 !important;
     opacity: 0 !important;
     pointer-events: none;
-    display: none;
+    /* display: none; */
     transition: .3s !important;
-    transform: translateY(19em) !important;
+    /* transform: translateY(19em) !important; */
     /* border: none !important; */
 }
 
@@ -719,7 +715,10 @@ a img {
 
 @media (max-width: 800px) {
 
-
+    body {
+        background: url(/assets/img/bg_mb\(cyan\).png) no-repeat center center fixed;
+        background-size: cover;
+    }
 
     .nav-container {
         height: 100vw;
@@ -751,7 +750,7 @@ a img {
     }
 
     #Jeu button {
-        width: 22%;
+        width: 10vw !important;
     }
 
     #Jeu #StatutJeu {
@@ -1002,9 +1001,9 @@ header {
     top: 25px;
     right: 0;
     width: 100%;
-    height: 8px;
+    /* height: 8px; */
     background: none;
-    padding: 20px 40px;
+    padding: 0px 40px;
     z-index: 99999;
     display: flex;
     flex-direction: row-reverse;
@@ -1025,6 +1024,10 @@ header {
 .group {
     display: flex;
     align-items: center;
+}
+
+.group ul {
+    margin: 0;
 }
 
 .group li {
@@ -1072,14 +1075,16 @@ header ul li a:hover::before {
 .latency-container {
     position: relative;
     border: 1px solid cyan;
+    transform: rotate(180deg);
     width: 20px;
     height: 15px;
     border-radius: 25px;
     margin: auto;
-    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 
-.latency {
-    height: 100%;
+#latency {
+    height: 50%;
+    margin: auto;
     background-color: cyan;
 }

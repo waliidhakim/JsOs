@@ -1,9 +1,40 @@
-let latency = document.querySelector('.latency');
+const minLatency = 50;
+const maxLatency = 300;
+
+const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/';
+const targetUrl = 'https://www.google.com/';
+function calculateLatency(proxy, url) {
+    return new Promise((resolve, reject) => {
+        const startTime = new Date().getTime();
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', proxy + url);
+        xhr.onload = () => {
+            const endTime = new Date().getTime();
+            const latency = endTime - startTime;
+            resolve(latency);
+        };
+        xhr.onerror = () => {
+            reject(new Error('Ping request failed'));
+        };
+        xhr.send();
+    });
+}
+
 
 setInterval(() => {
-    latency.style.height = navigator.connection.downlink * 10 + 'px';
-}, 1000);
-initBattery()
+    calculateLatency(corsAnywhereUrl, targetUrl)
+        .then(latency => {
+            const cappedLatency = Math.max(Math.min(latency, maxLatency), minLatency);
+            const percentage = (maxLatency - cappedLatency) / (maxLatency - minLatency) * 100;
+            document.querySelector('#latency').style.height = `${percentage.toFixed(2)}%`;
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}, 5000);
+
+
+
 
 function initBattery() {
     const batteryLiquid = document.querySelector('.battery__liquid'),
@@ -117,4 +148,5 @@ curday();
 function showDiv(divId, element) {
     document.getElementById(divId).style.display = element.value == 1 ? 'block' : 'none';
 }
+
 
