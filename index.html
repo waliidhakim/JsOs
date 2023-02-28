@@ -10,6 +10,7 @@
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <link id="style" rel="stylesheet" href="style-cyan.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 
     <body>
@@ -66,21 +67,21 @@
 
         <div class="app-list">
             <div class="icon-wrapper">
-                <div id="calculator-icon" class="icon"><i class="fa-solid
+                <div id="calculator-icon" class="icon vibre"><i class="fa-solid
                         fa-calculator"></i></div>
                 <p>Calculator</p>
             </div>
             <div class="icon-wrapper">
-                <div id="clock-icon" class="icon"><i class="fa-solid fa-clock"></i></div>
+                <div id="clock-icon" class="icon vibre"><i class="fa-solid fa-clock"></i></div>
                 <p>Clock</p>
             </div>
             <div class="icon-wrapper">
-                <div id="tictactoe-icon" class="icon"><i class="fa-solid
+                <div id="tictactoe-icon" class="icon vibre"><i class="fa-solid
                         fa-gamepad"></i></div>
                 <p>Tic-Tac-Toe</p>
             </div>
             <div class="icon-wrapper">
-                <div id="settings-icon" class="icon"><i class="fa-solid
+                <div id="settings-icon" class="icon vibre"><i class="fa-solid
                         fa-gear"></i></div>
                 <p>Settings</p>
             </div>
@@ -91,15 +92,15 @@
                 <img src="/assets/img/Icon(cyan).png" alt="logo" class="logo">
                 <p>Calculator</p>
                 <div class="buttons">
-                    <div id="btn" class="minimize">
+                    <div id="btn" class="minimize vibre">
                         <img src="assets/svgs/minimize.svg" alt="">
                     </div>
-                    <div id="btn" class="close">
+                    <div id="btn" class="close vibre">
                         <img src="assets/svgs/close.svg" alt="">
                     </div>
                 </div>
             </div>
-            <table class="calculator-grid">
+            <table class="calculator-grid vibre" >
                 <div class="output">
                     <div data-previous-operand class="previous-operand"></div>
                     <div data-current-operand class="current-operand"></div>
@@ -141,13 +142,13 @@
                 <img src="/assets/img/Icon(cyan).png" alt="logo" class="logo">
                 <p>Clock</p>
                 <div class="buttons">
-                    <div id="btn" class="minimize">
+                    <div id="btn" class="minimize vibre">
                         <img src="assets/svgs/minimize.svg" alt="">
                     </div>
-                    <div id="btn" class="maximize">
+                    <div id="btn" class="maximize vibre">
                         <img src="assets/svgs/maximize.svg" alt="">
                     </div>
-                    <div id="btn" class="close">
+                    <div id="btn" class="close vibre">
                         <img src="assets/svgs/close.svg" alt="">
                     </div>
                 </div>
@@ -163,12 +164,12 @@
                         <h1 id="chronotimer"><i class="fa-solid fa-stopwatch"></i>00:00:00</h1>
                         <div class="grid">
                             <button id="start-chrono"><i class="fa-solid
-                                    fa-play"></i></button>
+                                    fa-play vibre"></i></button>
                             <button id="stop-chrono"><i class="fa-solid
-                                    fa-pause"></i></button>
+                                    fa-pause vibre"></i></button>
                             <button id="reset-chrono"><i class="fa-solid
-                                    fa-rotate-left"></i></button>
-                            <button id="lap-chrono"><i class="fa-solid fa-flag"></i></button>
+                                    fa-rotate-left vibre"></i></button>
+                            <button id="lap-chrono"><i class="fa-solid fa-flag vibre"></i></button>
                         </div>
                     </div>
                     <ul id="laps-list">
@@ -209,13 +210,13 @@
                 <img src="/assets/img/Icon(cyan).png" alt="logo" class="logo">
                 <p>Tic-Tac-Toe</p>
                 <div class="buttons">
-                    <div id="btn" class="minimize">
+                    <div id="btn" class="minimize vibre">
                         <img src="assets/svgs/minimize.svg" alt="">
                     </div>
-                    <div id="btn" class="maximize">
+                    <div id="btn" class="maximize vibre">
                         <img src="assets/svgs/maximize.svg" alt="">
                     </div>
-                    <div id="btn" class="close">
+                    <div id="btn" class="close vibre">
                         <img src="assets/svgs/close.svg" alt="">
                     </div>
                 </div>
@@ -223,7 +224,7 @@
             <div class="tictactoe-app">
                 <div class="container">
                     <section class="col-lg-12">
-                        <div id="Jeu">
+                        <div id="Jeu" class="vibre">
                             <div>
                                 <button type="button" class="btn btn-secondary"></button>
                                 <button type="button" class="btn btn-secondary"></button>
@@ -314,7 +315,7 @@
                         </div>
                     </div>
                     <div id="setting-option" class="item">
-                        <h4 onclick="toggle(this);">battery<span><i
+                        <h4 onclick="toggle(this);">battery & vibration<span><i
                                     class="fa-solid fa-arrow-right"></i></span></h4>
                         <div class="item-details">
                             <label>Show battery percentage :</label>
@@ -323,7 +324,12 @@
                                 <option value="1">Yes</option>
                                 <option value="0">No</option>
                             </select>
-
+                            <label>shwo vibration icon :</label>
+                            <select id="mois" name="form_select"
+                                onchange="showDiv('hidden_vibrate', this)">
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
                         </div>
                     </div>
 

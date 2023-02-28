@@ -1,0 +1,8 @@
+.item{background: url('./assets/img/bg_ls(red).png');
+  margin-bottom:20px;font-family:arial;}	
+.item-details{display:none;padding:15px;}
+.item.active .item-details{display:block;}
+h4{padding:15px;margin:0;color: aliceblue;}
+h4 span{float:right;}
+p{margin:0;color: aliceblue;}
+.item.active h4 span{transform: rotate(0.25turn);}
