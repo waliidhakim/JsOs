@@ -10,18 +10,22 @@
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <link id="style" rel="stylesheet" href="style-cyan.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet">
     </head>
 
     <body>
         <header>
             <div class="group">
                 <ul class="navigation">
-                    <li id="hidden_reseau"> 
+                    <li id="hidden_reseau">
                         <div class="latency-container">
                             <div id="latency"></div>
                         </div>
                     </li>
+                    <li id="hidden_vibrate" data-vibrate="true"
+                        onclick="activate()"><span class="material-icons
+                            red-color vibre">vibration</span></li>
                     <li id="hidden_date"><div id="date"></div></li>
                     <li id="hidden_heure"> <div id="clock"></div></li>
                     <li style="display: flex;align-items: center;">
@@ -64,7 +68,6 @@
                 </div>
             </div>
         </nav> -->
-
         <div class="app-list">
             <div class="icon-wrapper">
                 <div id="calculator-icon" class="icon vibre"><i class="fa-solid
@@ -72,7 +75,8 @@
                 <p>Calculator</p>
             </div>
             <div class="icon-wrapper">
-                <div id="clock-icon" class="icon vibre"><i class="fa-solid fa-clock"></i></div>
+                <div id="clock-icon" class="icon vibre"><i class="fa-solid
+                        fa-clock"></i></div>
                 <p>Clock</p>
             </div>
             <div class="icon-wrapper">
@@ -100,7 +104,7 @@
                     </div>
                 </div>
             </div>
-            <table class="calculator-grid vibre" >
+            <table class="calculator-grid vibre">
                 <div class="output">
                     <div data-previous-operand class="previous-operand"></div>
                     <div data-current-operand class="current-operand"></div>
@@ -169,7 +173,8 @@
                                     fa-pause vibre"></i></button>
                             <button id="reset-chrono"><i class="fa-solid
                                     fa-rotate-left vibre"></i></button>
-                            <button id="lap-chrono"><i class="fa-solid fa-flag vibre"></i></button>
+                            <button id="lap-chrono"><i class="fa-solid fa-flag
+                                    vibre"></i></button>
                         </div>
                     </div>
                     <ul id="laps-list">
@@ -265,13 +270,13 @@
                 </div>
             </div>
             <div class="setting theme">
-                 <label>Choose Theme :</label>
-                            <select id="theme" name="form_select"
-                                onchange="changeTheme(this.value)">
-                                <option value="cyan">Cyan</option>
-                                <option value="red">Red</option>
-                                <option value="yellow">Yellow</option>
-                            </select>
+                <label>Choose Theme :</label>
+                <select id="theme" name="form_select"
+                    onchange="changeTheme(this.value)">
+                    <option value="cyan">Cyan</option>
+                    <option value="red">Red</option>
+                    <option value="yellow">Yellow</option>
+                </select>
                 <div class="toogle">
                     <div id="setting-option" class="item">
                         <h4 onclick="toggle(this);">Network latency<span><i
@@ -324,7 +329,7 @@
                                 <option value="1">Yes</option>
                                 <option value="0">No</option>
                             </select>
-                            <label>shwo vibration icon :</label>
+                            <label>show vibration icon :</label>
                             <select id="mois" name="form_select"
                                 onchange="showDiv('hidden_vibrate', this)">
                                 <option value="1">Yes</option>
