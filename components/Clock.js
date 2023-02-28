@@ -1,3 +1,85 @@
+const clock = document.querySelector('.watch');
+
+function updateClock() {
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+  clock.querySelector('h1').textContent = `${hours}:${minutes}:${seconds}`;
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+const chronometer = document.getElementById('chrono');
+const startChronoBtn = document.querySelector('#start-chrono');
+const stopChronoBtn = document.querySelector('#stop-chrono');
+const resetChronoBtn = document.querySelector('#reset-chrono');
+const lapChronoBtn = document.querySelector('#lap-chrono');
+const lapsList = document.querySelector('#laps-list');
+let chronoIntervalId;
+let chronoStartTime;
+let chronoElapsedTime = 0;
+let lapStartTime;
+let lapElapsedTime = 0;
+let lapCount = 1;
+
+function startChrono() {
+  startChronoBtn.disabled = true;
+  stopChronoBtn.disabled = false;
+  resetChronoBtn.disabled = true;
+  lapChronoBtn.disabled = false;
+  chronoStartTime = Date.now() - chronoElapsedTime;
+  lapStartTime = chronoStartTime;
+  chronoIntervalId = setInterval(updateChrono, 10);
+}
+
+function stopChrono() {
+  console.log('stopped')
+  startChronoBtn.disabled = false;
+  stopChronoBtn.disabled = true;
+  resetChronoBtn.disabled = false;
+  lapChronoBtn.disabled = true;
+  clearInterval(chronoIntervalId);
+}
+
+function resetChrono() {
+  console.log('reset')
+  stopChrono();
+  chronoElapsedTime = 0;
+  lapElapsedTime = 0;
+  lapCount = 1;
+  lapsList.innerHTML = '';
+  document.querySelector('#chronotimer').textContent = '00:00:00';
+}
+
+function lapChrono() {
+  const lapElapsedTime = Date.now() - lapStartTime;
+  const lapMinutes = Math.floor(lapElapsedTime / (1000 * 60)).toString().padStart(2, '0');
+  const lapSeconds = Math.floor((lapElapsedTime % (1000 * 60)) / 1000).toString().padStart(2, '0');
+  const lapMilliseconds = Math.floor((lapElapsedTime % 1000) / 10).toString().padStart(2, '0');
+  const lapTime = `${lapMinutes}:${lapSeconds}:${lapMilliseconds}`;
+  const lapItem = document.createElement('li');
+  lapItem.textContent = `Lap ${lapCount}: ${lapTime}`;
+  lapsList.appendChild(lapItem);
+  lapCount++;
+  lapStartTime = Date.now();
+}
+
+function updateChrono() {
+  const elapsedTime = Date.now() - chronoStartTime;
+  const minutes = Math.floor(elapsedTime / (1000 * 60)).toString().padStart(2, '0');
+  const seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000).toString().padStart(2, '0');
+  const milliseconds = Math.floor((elapsedTime % 1000) / 10).toString().padStart(2, '0');
+  document.querySelector('#chronotimer').textContent = `${minutes}:${seconds}:${milliseconds}`;
+  chronoElapsedTime = elapsedTime;
+}
+
+startChronoBtn.addEventListener('click', startChrono);
+stopChronoBtn.addEventListener('click', stopChrono);
+resetChronoBtn.addEventListener('click', resetChrono);
+lapChronoBtn.addEventListener('click', lapChrono);
+
 ////////////////// chrono
 const watch = document.querySelector('#watch');
 let milliseconds = 0;
@@ -21,6 +103,17 @@ function pauseWatch() {
   watch.classList.add('paused');
   clearInterval(timer);
 };
+function formatTime() {
+
+  var d = new Date(),
+      minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
+      hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours(),
+      ampm = d.getHours() >= 12 ? 'pm' : 'am',
+      months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+  return '<h2>'+hours+'<span>:'+minutes+'</span></h2><small>'+ampm+'</small><h3>'+days[d.getDay()]+'<span>'+months[d.getMonth()]+' '+d.getDate()+'</span>'+d.getFullYear()+'</h3>';
+}
 
 function resetWatch() {
   watch.classList.remove('paused');
@@ -205,29 +298,11 @@ const resetCountDown = () => {
   resetBtn.disabled = true;
 };
 /* resetCountDown function ends */
-
-
-
-
-
-
-
-
 setInterval(function(){
   getId("do-time").innerHTML = formatTime();
 },1000);
 
-function formatTime() {
 
-  var d = new Date(),
-      minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
-      hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours(),
-      ampm = d.getHours() >= 12 ? 'pm' : 'am',
-      months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-      days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-  return '<h2>'+hours+'<span>:'+minutes+'</span></h2><small>'+ampm+'</small><h3>'+days[d.getDay()]+'<span>'+months[d.getMonth()]+' '+d.getDate()+'</span>'+d.getFullYear()+'</h3>';
-}
 
 var Cal = function(divId) {
 
@@ -268,92 +343,9 @@ Cal.prototype.previousMonth = function() {
   this.showcurr();
 };
 
-Cal.prototype.showcurr = function() {
-  this.showMonth(this.currYear, this.currMonth);
-};
-
-Cal.prototype.showMonth = function(y, m) {
-
-  var chk = new Date();
-  var chkY = chk.getFullYear();
-  var chkM = chk.getMonth();
-
-  var d = new Date()
-  , firstDayOfMonth = new Date(y, m, 1).getDay()
-  , lastDateOfMonth =  new Date(y, m+1, 0).getDate()
-  , lastDayOfLastMonth = m == 0 ? new Date(y-1, 11, 0).getDate() : new Date(y, m, 0).getDate();
 
 
-  var html = '<table>';
 
-  html += '<thead><tr>';
-  html += '<td colspan="7">' + this.Months[m] + ' ' + y + '</td>';
-  html += '</tr></thead>';
-
-
-  html += '<tr class="days">';
-  for(var i=0; i < this.DaysOfWeek.length;i++) {
-    if ( chkY == this.currYear && chkM == this.currMonth && i == this.currD ) {
-      html += '<td class="today">' + this.DaysOfWeek[i] + '</td>';
-    } else {
-      html += '<td>' + this.DaysOfWeek[i] + '</td>';
-    }
-  }
-  html += '</tr>';
-
-  var i=1;
-  do {
-
-    var dow = new Date(y, m, i).getDay();
-
-    if ( dow == 0 ) {
-      html += '<tr>';
-    }
-    else if ( i == 1 ) {
-      html += '<tr>';
-      var k = lastDayOfLastMonth - firstDayOfMonth+1;
-      for(var j=0; j < firstDayOfMonth; j++) {
-        html += '<td class="not-current">' + k + '</td>';
-        k++;
-      }
-    }
-
-    if (chkY == this.currYear && chkM == this.currMonth && i == this.currDate) {
-      html += '<td class="today">' + i + '</td>';
-    } else {
-      html += '<td class="normal">' + i + '</td>';
-    }
-    if ( dow == 6 ) {
-      html += '</tr>';
-    }
-    else if ( i == lastDateOfMonth ) {
-      var k=1;
-      for(dow; dow < 6; dow++) {
-        html += '<td class="not-current">' + k + '</td>';
-        k++;
-      }
-    }
-
-    i++;
-  }while(i <= lastDateOfMonth);
-
-  html += '</table>';
-
-  document.getElementById(this.divId).innerHTML = html;
-};
-
-window.onload = function() {
-
-  var c = new Cal("divCal");			
-  c.showcurr();
-
-  getId('btnNext').onclick = function() {
-    c.nextMonth();
-  };
-  getId('btnPrev').onclick = function() {
-    c.previousMonth();
-  };
-}
 
 function getId(id) {
   return document.getElementById(id);
@@ -364,3 +356,4 @@ function toogle(that){
       that.parentElement.classList.toggle("active");
   }
   }
+  
