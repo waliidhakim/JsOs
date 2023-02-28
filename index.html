@@ -6,32 +6,31 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Zak & Walid^2 Mini Os</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="battery.css">
-        <link rel="stylesheet" href="calculator.css">
-        <link rel="stylesheet" href="tic-tac-toe.css">
-        <link rel="stylesheet" href="horloge.css">
-        <link rel="stylesheet" href="setting.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        <link id="style" rel="stylesheet" href="style-cyan.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 
     <body>
-        <!-- <img class="bg" src="./assets/img/bg_ls(cyan).png" alt=""> -->
         <header>
             <div class="group">
                 <ul class="navigation">
-                    <li id="hidden_reseau"><i class="fa-solid fa-wifi"></i> 120 / ms</li>
+                    <li id="hidden_reseau"><div class="latency-container">
+                        <div class="latency"></div>
+                    </div> </li>
+                    <li id="hidden_vibrate" data-vibrate="false" onclick="activate()"><span class="material-icons red-color vibre">phone_iphone</span></li>
                     <li id="hidden_date"><div id="date"></div></li>
-                    <li><i class="fa-solid fa-bell"></i></li>
                     <li id="hidden_heure"> <div id="clock"></div></li>
                     <li style="display: flex;align-items: center;">
                         <div class="battery__pill">
-                        <div class="battery__level">
-                            <div class="battery__liquid"></div>
+                            <div class="battery__level">
+                                <div class="battery__liquid"></div>
+                            </div>
                         </div>
-                    </div>
                         <div class="battery__data">
-                            <h1 class="battery__percentage" id="hidden_batterie">
+                            <h1 class="battery__percentage"
+                                id="hidden_batterie">
                                 20%
                             </h1>
                             <p class="battery__status">
@@ -42,7 +41,7 @@
             </div>
         </header>
 
-        <nav class="nav-container">
+        <!-- <nav class="nav-container">
             <div class="nav">
                 <div class="nav-elements">
                     <div id="calculator-button" class='minim-icon'>
@@ -58,32 +57,29 @@
                         <i class="fa-solid fa-sliders"></i>
                     </div>
                 </div>
-                <div class="menu-icon">
-                    <a href="#"><i class="fa-solid fa-grip"></i></a>
-                </div>
                 <div class="version">
                     v.0.0.1
                 </div>
             </div>
-        </nav>
+        </nav> -->
 
         <div class="app-list">
             <div class="icon-wrapper">
-                <div id="calculator-icon" class="icon"><i class="fa-solid
+                <div id="calculator-icon" class="icon vibre"><i class="fa-solid
                         fa-calculator"></i></div>
                 <p>Calculator</p>
             </div>
             <div class="icon-wrapper">
-                <div id="clock-icon" class="icon"><i class="fa-solid fa-clock"></i></div>
+                <div id="clock-icon" class="icon vibre"><i class="fa-solid fa-clock"></i></div>
                 <p>Clock</p>
             </div>
             <div class="icon-wrapper">
-                <div id="tictactoe-icon" class="icon"><i class="fa-solid
+                <div id="tictactoe-icon" class="icon vibre"><i class="fa-solid
                         fa-gamepad"></i></div>
                 <p>Tic-Tac-Toe</p>
             </div>
             <div class="icon-wrapper">
-                <div id="settings-icon" class="icon"><i class="fa-solid
+                <div id="settings-icon" class="icon vibre"><i class="fa-solid
                         fa-gear"></i></div>
                 <p>Settings</p>
             </div>
@@ -94,131 +90,117 @@
                 <img src="/assets/img/Icon(cyan).png" alt="logo" class="logo">
                 <p>Calculator</p>
                 <div class="buttons">
-                    <div id="btn" class="minimize">
+                    <div id="btn" class="minimize vibre">
                         <img src="assets/svgs/minimize.svg" alt="">
                     </div>
-                    <div id="btn" class="maximize">
-                        <img src="assets/svgs/maximize.svg" alt="">
-                    </div>
-                    <div id="btn" class="close">
+                    <div id="btn" class="close vibre">
                         <img src="assets/svgs/close.svg" alt="">
                     </div>
                 </div>
             </div>
-            <div class="calculator">
-                <div class="screen">
-                    <div class="screen-last" id="lastOperationScreen"></div>
-                    <div class="screen-current" id="currentOperationScreen">0</div>
+            <table class="calculator-grid vibre" >
+                <div class="output">
+                    <div data-previous-operand class="previous-operand"></div>
+                    <div data-current-operand class="current-operand"></div>
                 </div>
-                <div class="buttons-grid">
-                    <button
-                            class="btn btn-red span-2"
-                            id="clearBtn"
-                            onclick="this.blur();"
-                    >
-                        CLEAR
-                    </button>
-                    <button
-                            class="btn btn-blue span-2"
-                            id="deleteBtn"
-                            onclick="this.blur();"
-                    >
-                        DELETE
-                    </button>
-                    <button class="btn" onclick="this.blur();" data-number>7</button>
-                    <button class="btn" onclick="this.blur();" data-number>8</button>
-                    <button class="btn" onclick="this.blur();" data-number>9</button>
-                    <button class="btn" onclick="this.blur();" data-operator>÷</button>
-        
-                    <button class="btn" onclick="this.blur();" data-number>4</button>
-                    <button class="btn" onclick="this.blur();" data-number>5</button>
-                    <button class="btn" onclick="this.blur();" data-number>6</button>
-                    <button class="btn" onclick="this.blur();" data-operator>×</button>
-        
-                    <button class="btn" onclick="this.blur();" data-number>1</button>
-                    <button class="btn" onclick="this.blur();" data-number>2</button>
-                    <button class="btn" onclick="this.blur();" data-number>3</button>
-                    <button class="btn" onclick="this.blur();" data-operator>−</button>
-        
-                    <button class="btn" onclick="this.blur();" id="pointBtn">.</button>
-                    <button class="btn" onclick="this.blur();" data-number>0</button>
-                    <button class="btn" onclick="this.blur();" id="equalsBtn">=</button>
-                    <button class="btn" onclick="this.blur();" data-operator>+</button>
-                </div>
-            </div>
+
+                <tr>
+                    <td colspan="2"><button data-all-clear>AC</button></td>
+                    <td><button data-delete>DEL</button></td>
+                    <td><button data-operation>/</button></td>
+                </tr>
+
+                <tr>
+                    <td><button data-number>1</button></td>
+                    <td><button data-number>2</button></td>
+                    <td><button data-number>3</button></td>
+                    <td><button data-operation>*</button></td>
+                </tr>
+                <tr>
+                    <td><button data-number>4</button></td>
+                    <td><button data-number>5</button></td>
+                    <td><button data-number>6</button></td>
+                    <td><button data-operation data-key="plus">+</button></td>
+                </tr>
+                <tr>
+                    <td><button data-number>7</button></td>
+                    <td><button data-number>8</button></td>
+                    <td><button data-number>9</button></td>
+                    <td><button data-operation data-key="minus">-</button></td>
+                </tr>
+                <tr>
+                    <td><button data-number>.</button></td>
+                    <td><button data-number>0</button></td>
+                    <td colspan="2"><button data-equals>=</button></td>
+                </tr>
+            </table>
         </div>
         <div id='app' class="clock" role="application">
             <div class="top-bar">
                 <img src="/assets/img/Icon(cyan).png" alt="logo" class="logo">
                 <p>Clock</p>
                 <div class="buttons">
-                    <div id="btn" class="minimize">
+                    <div id="btn" class="minimize vibre">
                         <img src="assets/svgs/minimize.svg" alt="">
                     </div>
-                    <div id="btn" class="maximize">
+                    <div id="btn" class="maximize vibre">
                         <img src="assets/svgs/maximize.svg" alt="">
                     </div>
-                    <div id="btn" class="close">
+                    <div id="btn" class="close vibre">
                         <img src="assets/svgs/close.svg" alt="">
                     </div>
                 </div>
             </div>
             <div class="clock-app">
-                <section class="container-horloge">
-                    <h1>CHRONO</h1>
-                    <div class="watch">
-                        <h2 id="watch">00:00:00:00</h2>
-                    </div>
-                    <div class="buttons">
-                        <button id="start">Start</button>
-                        <button id="pause">Pause</button>
-                        <button id="reset">Reset</button>
-                    </div>
-                </section>
-                <div class="container-horloge">
-                    <h1>MINUTEUR</h1>
-                    <!-- form -->
-                    <form class="form">
-                      <!-- countdown time input field -->
-                      <input type="number" min="1" class="time-input" placeholder="Enter Countdown">
-                      <!-- options -->
-                      <select name="format">
-                        <option value="hours">Hours</option>
-                        <option value="minutes">Minutes</option>
-                        <option value="seconds">Seconds</option>
-                      </select>
-                      <!-- submit button or set button -->
-                      <button type="submit" class="set-btn">SET</button>
-                    </form>
-                    <!-- countdown text -->
-                    <p class="countdown">00 : 00 : 00</p>
-                
-                    <!-- buttons -->
-                    <div class="buttons">
-                      <button class="stop-btn" disabled>STOP</button>
-                      <button class="reset-btn" disabled>RESET</button>
-                    </div>
-                  </div>
-                  <!--horloge-->
-                  <div class="container">
-                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                      <div class="flipper">
-                        <div class="front">
-                          <div id="time-widget" class="outer-square setter time">
-                            <div id="do-time"></div>
-                          </div>
+                <p>Clock</p>
+                <div class="watch flex">
+                    <i class="fa-solid fa-clock"></i><h1></h1>
+                </div>
+                <p>Chronometer</p>
+                <div class="chrono">
+                    <div>
+                        <h1 id="chronotimer"><i class="fa-solid fa-stopwatch"></i>00:00:00</h1>
+                        <div class="grid">
+                            <button id="start-chrono"><i class="fa-solid
+                                    fa-play vibre"></i></button>
+                            <button id="stop-chrono"><i class="fa-solid
+                                    fa-pause vibre"></i></button>
+                            <button id="reset-chrono"><i class="fa-solid
+                                    fa-rotate-left vibre"></i></button>
+                            <button id="lap-chrono"><i class="fa-solid fa-flag vibre"></i></button>
                         </div>
-                        <div class="back">
-                          <div class="calendar-wrapper">
-                            <button id="btnPrev" type="button">Prev</button>
-                            <button id="btnNext" type="button">Next</button>
-                            <div id="divCal"></div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
-                  </div>
-                
+                    <ul id="laps-list">
+                    </ul>
+                </div>
+                <div class="timer">
+                    <p>Timer</p>
+                    <div class="container">
+                        <!-- form -->
+                        <form class="form">
+                            <!-- countdown time input field -->
+                            <input type="number" min="1" class="time-input"
+                                placeholder="Enter Countdown">
+                            <!-- options -->
+                            <select name="format">
+                                <option value="hours">Hours</option>
+                                <option value="minutes">Minutes</option>
+                                <option value="seconds">Seconds</option>
+                            </select>
+                            <!-- submit button or set button -->
+                            <button type="submit" class="set-btn">SET</button>
+                        </form>
+                        <!-- countdown text -->
+                        <p class="countdown">00 : 00 : 00</p>
+
+                        <!-- buttons -->
+                        <div class="buttons">
+                            <button class="stop-btn" disabled>STOP</button>
+                            <button class="reset-btn" disabled>RESET</button>
+                        </div>
+                    </div>
+                    <h1></h1>
+                </div>
             </div>
         </div>
         <div id='app' class="tictactoe" role="application">
@@ -226,13 +208,13 @@
                 <img src="/assets/img/Icon(cyan).png" alt="logo" class="logo">
                 <p>Tic-Tac-Toe</p>
                 <div class="buttons">
-                    <div id="btn" class="minimize">
+                    <div id="btn" class="minimize vibre">
                         <img src="assets/svgs/minimize.svg" alt="">
                     </div>
-                    <div id="btn" class="maximize">
+                    <div id="btn" class="maximize vibre">
                         <img src="assets/svgs/maximize.svg" alt="">
                     </div>
-                    <div id="btn" class="close">
+                    <div id="btn" class="close vibre">
                         <img src="assets/svgs/close.svg" alt="">
                     </div>
                 </div>
@@ -240,7 +222,7 @@
             <div class="tictactoe-app">
                 <div class="container">
                     <section class="col-lg-12">
-                        <div id="Jeu">
+                        <div id="Jeu" class="vibre">
                             <div>
                                 <button type="button" class="btn btn-secondary"></button>
                                 <button type="button" class="btn btn-secondary"></button>
@@ -256,7 +238,7 @@
                                 <button type="button" class="btn btn-secondary"></button>
                                 <button type="button" class="btn btn-secondary"></button>
                             </div>
-        
+
                             <div id="StatutJeu"></div>
                         </div>
                         <footer class="pied" style="margin-top: 15px;">
@@ -264,13 +246,13 @@
                             </div>
                         </footer>
                     </section>
-    
                 </div>
             </div>
         </div>
         <div id='app' class="settings" role="application">
             <div class="top-bar">
-                <img src="/assets/img/Icon(cyan).png" alt="logo" class="logo">
+                <img src="/assets/img/Icon(cyan).png" alt="logo"
+                    class="logo">
                 <p>Settings</p>
                 <div class="buttons">
                     <div id="btn" class="minimize">
@@ -284,82 +266,91 @@
                     </div>
                 </div>
             </div>
-            <div class="setting">
+            <div class="setting theme">
+                 <label>Choose Theme :</label>
+                            <select id="theme" name="form_select"
+                                onchange="changeTheme(this.value)">
+                                <option value="cyan">Cyan</option>
+                                <option value="red">Red</option>
+                                <option value="yellow">Yellow</option>
+                            </select>
                 <div class="toogle">
-                    <div class="item">
-                        <h4 onclick="toogle(this);">latence réseau<span>></span></h4>
+                    <div id="setting-option" class="item">
+                        <h4 onclick="toggle(this);">Network latency<span><i
+                                    class="fa-solid fa-arrow-right"></i></span></h4>
                         <div class="item-details">
-                            <label>afficher la latence réseau</label>
-                            <select id="test" name="form_select" onchange="showDiv('hidden_reseau', this)">
+                            <label>Show network latency</label>
+                            <select id="test" name="form_select"
+                                onchange="showDiv('hidden_reseau', this)">
                                 <option value="1">Yes</option>
                                 <option value="0">No</option>
-                             </select>            
+                            </select>
                         </div>
                     </div>
-                    <div class="item">
-                        <h4 onclick="toogle(this);">horloge & Date<span>></span></h4>
+                    <div id="setting-option" class="item">
+                        <h4 onclick="toggle(this);">Time & Date<span><i
+                                    class="fa-solid fa-arrow-right"></i></span></h4>
                         <div class="item-details">
-                            <label >afficher l'heure:</label>
-                            <select id="heure" name="form_select" onchange="showDiv('hidden_heure', this)">
+                            <label>Show hour :</label>
+                            <select id="heure" name="form_select"
+                                onchange="showDiv('hidden_heure', this)">
                                 <option value="1">Yes</option>
                                 <option value="0">No</option>
-                             </select>   
-                             <label >minutes:</label>
-                            <select id="minute" name="form_select" >
+                            </select>
+                            <label>Show minutes :</label>
+                            <select id="minute" name="form_select">
                                 <option value="1">Yes</option>
                                 <option value="0">No</option>
-                             </select>  
-                             <label >seconde:</label>
-                            <select id="seconde" name="form_select" >
+                            </select>
+                            <label>Show secondes :</label>
+                            <select id="seconde" name="form_select">
                                 <option value="1">Yes</option>
                                 <option value="0">No</option>
-                             </select><br>
-                             <label >afficher date:</label>
-                             <select id="mois" name="form_select" onchange="showDiv('hidden_date', this)">
-                                 <option value="1">Yes</option>
-                                 <option value="0">No</option>
-                              </select>   
-                              
+                            </select><br>
+                            <label>afficher date:</label>
+                            <select id="mois" name="form_select"
+                                onchange="showDiv('hidden_date', this)">
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+
                         </div>
                     </div>
-                    <div class="item">
-                        <h4 onclick="toogle(this);">Date<span>></span></h4>
+                    <div id="setting-option" class="item">
+                        <h4 onclick="toggle(this);">battery & vibration<span><i
+                                    class="fa-solid fa-arrow-right"></i></span></h4>
                         <div class="item-details">
-                            <label >afficher le pourcentage de la batterie:</label>
-                            <select id="mois" name="form_select" onchange="showDiv('hidden_batterie', this)">
+                            <label>Show battery percentage :</label>
+                            <select id="mois" name="form_select"
+                                onchange="showDiv('hidden_batterie', this)">
                                 <option value="1">Yes</option>
                                 <option value="0">No</option>
-                             </select>   
-                                        
+                            </select>
+                            <label>shwo vibration icon :</label>
+                            <select id="mois" name="form_select"
+                                onchange="showDiv('hidden_vibrate', this)">
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
                         </div>
                     </div>
+
                 </div>
-                
+
             </div>
         </div>
         <div class="widget">
             <div class="datetime">
+                <p></p>
+                <p></p>
             </div>
         </div>
         <script type="module" src="./main.js"></script>
         <script type="module" src="./components/Calculator.js"></script>
         <script type="module" src="./components/Clock.js"></script>
-        <script src="script.js"></script>
-        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script type="module" src="./components/tic-tac-toe.js"></script>
-        <script type="module" src="./components/Clock.js"></script>
-        <script type="text/javascript">function toogle(that){
-            let item = document.querySelectorAll(".item");
-            for (var i of item) {
-                that.parentElement.classList.toggle("active");
-            }
-            }
-            function showDiv(divId, element)
-{
-    document.getElementById(divId).style.display = element.value == 1 ? 'block' : 'none';
-}
-        </script>
+        <script type="module" src="./components/TicTacToe.js"></script>
+        <script src="./components/Settings.js"></script>
+        <script src="./nav.js"></script>
     </body>
 
 </html>
